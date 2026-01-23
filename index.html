@@ -45,7 +45,6 @@
         .show-card { background: var(--surface-color); border: var(--border-val); transition: 0.3s; display: flex; flex-direction: column; }
         .show-card:hover { border-color: var(--accent-color); transform: translateY(-5px); }
         
-        /* Animation Box instead of Cover Art */
         .show-animation-box { 
             width: 100%; 
             aspect-ratio: 16/9; 
@@ -134,7 +133,7 @@
                 <p>Unapologetic humor and social commentary from the front lines.</p>
                 <div class="platform-wrap">
                     <a href="https://podcasts.apple.com/us/podcast/growing-joey/id1849972654" class="pill" target="_blank">Apple</a>
-                    <a href="https://open.spotify.com/show/3Jz9QCmBiIuMmFFMx7YWh" class="pill" target="_blank">Spotify</a>
+                    <a href="https://open.spotify.com/show/3Jz9QCmBiIuMmFFMx7YWhv?si=AMayUatdQ1K7OoFNH5XTbg" class="pill" target="_blank">Spotify</a>
                     <a href="https://music.amazon.com/podcasts/7c36f135-06a0-415e-b1b3-6e0d992286cb/joey-shits-on-the-world" class="pill" target="_blank">Amazon</a>
                     <a href="https://www.iheart.com/podcast/309942580" class="pill" target="_blank">iHeart</a>
                     <a href="https://whatsapp.com/channel/0029VbBCBcn4yltVZkSnvU0C" class="pill" target="_blank">WhatsApp</a>
@@ -158,7 +157,6 @@
     </footer>
 
     <script>
-        // Updated Google Sheets Script Link
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzeWgDC3cgvng6On_rg5uZZXCurJmPNZP5HHJ_zuWFCunjyaNPTRn7xMW-T2iSFuauS/exec'
         const form = document.getElementById('newsletterForm')
         const msg = document.getElementById('msg')
@@ -168,7 +166,7 @@
           msg.innerHTML = "SUBMITTING..."
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                msg.innerHTML = "YOU'RE IN."
+                msg.innerHTML = "YOU'RE IN. CHECK YOUR EMAIL."
                 setTimeout(function(){ msg.innerHTML = "" }, 5000)
                 form.reset()
             })

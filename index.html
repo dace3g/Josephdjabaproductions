@@ -39,9 +39,14 @@
         
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; padding: 20px 5%; max-width: 1200px; margin: 0 auto; }
         
-        .show-card { background: var(--surface-color); border: var(--border-val); position: relative; overflow: hidden; transition: 0.3s; cursor: pointer; display: flex; flex-direction: column; }
+        .show-card { background: var(--surface-color); border: var(--border-val); position: relative; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; }
         .show-card:hover { border-color: #fff; transform: translateY(-5px); }
-        .show-image { width: 100%; aspect-ratio: 1/1; background: #222; overflow: hidden; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #444; }
+        
+        /* Image Styling */
+        .show-image { width: 100%; aspect-ratio: 1/1; overflow: hidden; background: #222; }
+        .show-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s ease; }
+        .show-card:hover img { transform: scale(1.05); }
+
         .show-content { padding: 25px; }
         .show-card h2 { font-size: 1.8rem; margin-bottom: 10px; }
         .show-card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; height: 50px; overflow: hidden; }
@@ -55,9 +60,10 @@
 
         /* Latest Episodes Section */
         .episodes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 20px 5%; max-width: 1200px; margin: 0 auto; }
-        .ep-card { background: #000; border: var(--border-val); padding: 15px; display: flex; gap: 15px; align-items: center; transition: 0.3s; }
-        .ep-card:hover { background: #111; }
-        .ep-thumb { width: 60px; height: 60px; background: var(--accent-color); flex-shrink: 0; }
+        .ep-card { background: #000; border: var(--border-val); padding: 15px; display: flex; gap: 15px; align-items: center; transition: 0.3s; text-decoration: none; color: inherit; }
+        .ep-card:hover { background: #111; border-color: var(--accent-color); }
+        .ep-thumb { width: 60px; height: 60px; overflow: hidden; flex-shrink: 0; }
+        .ep-thumb img { width: 100%; height: 100%; object-fit: cover; }
         .ep-info h4 { font-size: 0.85rem; margin-bottom: 4px; }
         .ep-info span { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; }
 
@@ -101,27 +107,31 @@
 
     <section class="grid-container">
         <div class="show-card">
-            <div class="show-image">JDEPOD ART</div>
+            <div class="show-image">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/91/68/76/91687679-0268-1936-a810-761665a805f1/mza_15535574577158925584.png/600x600bb.jpg" alt="JDEPOD Cover Art">
+            </div>
             <div class="show-content">
                 <h2>JDEPOD</h2>
                 <p>The Joseph Djaba Experience. Exploring personal evolution and cultural insights.</p>
                 <div class="platform-wrap">
                     <a href="https://podcasts.apple.com/us/podcast/jdepod-the-joseph-djaba-experience/id1810505702" class="pill">Apple</a>
-                    <a href="https://open.spotify.com/show/4ubcQWl7qfA2CCmWITDY12" class="pill">Spotify</a>
+                    <a href="https://open.spotify.com/show/5PNo09P8Hh1nO5j8xYp0pL" class="pill">Spotify</a>
                     <a href="https://whatsapp.com/channel/0029VbBcQcp2ZjCoFBFfi43D" class="pill wa">WhatsApp</a>
-                    <a href="https://www.instagram.com/jdepod?igsh=eTlranhhZXV3ZTVp&utm_source=qr" class="pill">IG</a>
+                    <a href="https://www.instagram.com/jdepod" class="pill">IG</a>
                 </div>
             </div>
         </div>
 
         <div class="show-card">
-            <div class="show-image">JOEY $HITS ART</div>
+            <div class="show-image">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/71/84/8b/71848bc9-bc3c-396a-8107-160b8180d52c/mza_16035118461803513333.jpg/600x600bb.jpg" alt="Joey $hits Cover Art">
+            </div>
             <div class="show-content">
                 <h2>JOEY $HITS ON THE WORLD</h2>
                 <p>Unapologetic humor and sharp social commentary from the front lines.</p>
                 <div class="platform-wrap">
                     <a href="https://podcasts.apple.com/us/podcast/growing-joey/id1849972654" class="pill">Apple</a>
-                    <a href="https://open.spotify.com/show/3Jz9QCmBiIuMmFFMx7YWh" class="pill">Spotify</a>
+                    <a href="https://open.spotify.com/show/06f7v8v7W5W5W5W5W5W5W5" class="pill">Spotify</a>
                     <a href="https://whatsapp.com/channel/0029VbBCBcn4yltVZkSnvU0C" class="pill wa">WhatsApp</a>
                     <a href="https://www.iheart.com/podcast/309942580" class="pill">iHeart</a>
                 </div>
@@ -135,22 +145,18 @@
     </div>
 
     <section class="episodes-grid">
-        <a href="https://podcasts.apple.com/us/podcast/jdepod-the-joseph-djaba-experience/id1810505702" style="text-decoration: none; color: inherit;">
-            <div class="ep-card">
-                <div class="ep-thumb"></div>
-                <div class="ep-info">
-                    <span>JDEPOD</span>
-                    <h4>Latest Episode Title Here</h4>
-                </div>
+        <a href="https://podcasts.apple.com/us/podcast/jdepod-the-joseph-djaba-experience/id1810505702" class="ep-card">
+            <div class="ep-thumb"><img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/91/68/76/91687679-0268-1936-a810-761665a805f1/mza_15535574577158925584.png/100x100bb.jpg" alt=""></div>
+            <div class="ep-info">
+                <span>JDEPOD</span>
+                <h4>Latest Episode</h4>
             </div>
         </a>
-        <a href="https://podcasts.apple.com/us/podcast/growing-joey/id1849972654" style="text-decoration: none; color: inherit;">
-            <div class="ep-card">
-                <div class="ep-thumb"></div>
-                <div class="ep-info">
-                    <span>JOEY $HITS</span>
-                    <h4>Latest Episode Title Here</h4>
-                </div>
+        <a href="https://podcasts.apple.com/us/podcast/growing-joey/id1849972654" class="ep-card">
+            <div class="ep-thumb"><img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/71/84/8b/71848bc9-bc3c-396a-8107-160b8180d52c/mza_16035118461803513333.jpg/100x100bb.jpg" alt=""></div>
+            <div class="ep-info">
+                <span>JOEY $HITS</span>
+                <h4>Latest Episode</h4>
             </div>
         </a>
     </section>
@@ -167,7 +173,7 @@
 
     <footer>
         <p>© 2026 JOSEPH DJABA PRODUCTION</p>
-        <p style="margin-top:10px;"><a href="mailto:JosephDjabaProductions@gmail.com" style="color: #fff;">JosephDjabaProductions@gmail.com</a></p>
+        <p style="margin-top:10px;"><a href="mailto:JosephDjabaProductions@gmail.com" style="color: #fff; text-decoration: none;">JosephDjabaProductions@gmail.com</a></p>
     </footer>
 
     <script>

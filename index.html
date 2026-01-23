@@ -10,8 +10,8 @@
     <style>
         :root {
             --bg-color: #000000;
-            --surface-color: #000044; /* Deep Blue from logo banner */
-            --accent-color: #FF5500; /* Joseph Djaba Orange */
+            --surface-color: #000044; 
+            --accent-color: #FF5500; 
             --text-main: #ffffff;
             --text-dim: #D1D1D1;
             --border-val: 1px solid #111199;
@@ -40,25 +40,46 @@
 
         .section-header { padding: 0 5%; max-width: 1200px; margin: 40px auto 20px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; }
         
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; padding: 20px 5%; max-width: 1200px; margin: 0 auto; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 20px 5%; max-width: 1200px; margin: 0 auto; }
         
         .show-card { background: var(--surface-color); border: var(--border-val); transition: 0.3s; display: flex; flex-direction: column; }
         .show-card:hover { border-color: var(--accent-color); transform: translateY(-5px); }
         
-        .show-image { width: 100%; aspect-ratio: 1/1; overflow: hidden; background: #222; }
-        .show-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s ease; }
+        /* Animation Box instead of Cover Art */
+        .show-animation-box { 
+            width: 100%; 
+            aspect-ratio: 16/9; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: radial-gradient(circle, #111199 0%, #000 100%);
+            position: relative;
+            overflow: hidden;
+        }
 
-        .show-content { padding: 25px; }
+        .signal-icon {
+            font-size: 4rem;
+            color: var(--accent-color);
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; text-shadow: 0 0 0px var(--accent-color); }
+            50% { transform: scale(1.1); opacity: 1; text-shadow: 0 0 20px var(--accent-color); }
+            100% { transform: scale(1); opacity: 0.5; text-shadow: 0 0 0px var(--accent-color); }
+        }
+
+        .show-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .show-card h2 { font-size: 1.8rem; margin-bottom: 10px; color: var(--accent-color); }
-        .show-card p { color: var(--text-main); font-size: 0.9rem; margin-bottom: 20px; }
+        .show-card p { color: var(--text-main); font-size: 0.9rem; margin-bottom: 20px; min-height: 3em; }
 
-        .platform-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
-        .pill { padding: 6px 12px; background: #000; color: #fff; text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; border: 1px solid var(--accent-color); transition: 0.3s; }
+        .platform-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+        .pill { padding: 6px 10px; background: #000; color: #fff; text-decoration: none; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; border: 1px solid var(--accent-color); transition: 0.3s; }
         .pill:hover { background: var(--accent-color); color: #000; }
 
         .newsletter { background: var(--accent-color); color: #000; padding: 80px 5%; text-align: center; margin-top: 60px; }
         .newsletter h2 { font-size: 3rem; margin-bottom: 1rem; }
-        .newsletter-form input { padding: 15px; border: 2px solid #000; background: #fff; font-weight: 700; width: 300px; }
+        .newsletter-form input { padding: 15px; border: 2px solid #000; background: #fff; font-weight: 700; width: 300px; margin-bottom: 10px; }
         .newsletter-form button { padding: 15px 30px; background: #000; color: #fff; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; }
 
         footer { padding: 60px 5%; text-align: center; border-top: var(--border-val); color: var(--text-dim); font-size: 0.8rem; }
@@ -86,31 +107,37 @@
 
     <section class="grid-container">
         <div class="show-card">
-            <div class="show-image">
-                <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/91/68/76/91687679-0268-1936-a810-761665a805f1/mza_15535574577158925584.png/600x600bb.jpg" alt="JDEPOD">
+            <div class="show-animation-box">
+                <i class="fa-solid fa-tower-broadcast signal-icon"></i>
             </div>
             <div class="show-content">
                 <h2>JDEPOD</h2>
                 <p>The Joseph Djaba Experience. Personal evolution and cultural insights.</p>
                 <div class="platform-wrap">
-                    <a href="https://podcasts.apple.com/us/podcast/jdepod-the-joseph-djaba-experience/id1810505702" class="pill">Apple</a>
-                    <a href="https://open.spotify.com/show/4ubcQWl7qfA2CCmWITDY12" class="pill">Spotify</a>
-                    <a href="https://whatsapp.com/channel/0029VbBcQcp2ZjCoFBFfi43D" class="pill">WhatsApp</a>
+                    <a href="https://podcasts.apple.com/us/podcast/jdepod-the-joseph-djaba-experience/id1810505702" class="pill" target="_blank">Apple</a>
+                    <a href="https://open.spotify.com/show/4ubcQWl7qfA2CCmWITDY12" class="pill" target="_blank">Spotify</a>
+                    <a href="https://music.amazon.com/podcasts/22a892e4-5a7a-4a3d-92b2-bd9f503bfe8c/jdepod-the-joseph-djaba-experience" class="pill" target="_blank">Amazon</a>
+                    <a href="https://www.iheart.com/podcast/1333-jdepod-the-joseph-djaba-e-273447982/" class="pill" target="_blank">iHeart</a>
+                    <a href="https://www.audible.co.uk/podcast/The-Joseph-Djaba-Experience-JDEPOD/B0F693LDP2" class="pill" target="_blank">Audible</a>
+                    <a href="https://www.instagram.com/jdepod" class="pill" target="_blank">Instagram</a>
+                    <a href="https://whatsapp.com/channel/0029VbBcQcp2ZjCoFBFfi43D" class="pill" target="_blank">WhatsApp</a>
                 </div>
             </div>
         </div>
 
         <div class="show-card">
-            <div class="show-image">
-                <img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/71/84/8b/71848bc9-bc3c-396a-8107-160b8180d52c/mza_16035118461803513333.jpg/600x600bb.jpg" alt="Joey $hits">
+            <div class="show-animation-box">
+                <i class="fa-solid fa-microphone-lines signal-icon"></i>
             </div>
             <div class="show-content">
                 <h2>JOEY $HITS</h2>
                 <p>Unapologetic humor and social commentary from the front lines.</p>
                 <div class="platform-wrap">
-                    <a href="https://podcasts.apple.com/us/podcast/growing-joey/id1849972654" class="pill">Apple</a>
-                    <a href="https://open.spotify.com/show/3Jz9QCmBiIuMmFFMx7YWh" class="pill">Spotify</a>
-                    <a href="https://whatsapp.com/channel/0029VbBCBcn4yltVZkSnvU0C" class="pill">WhatsApp</a>
+                    <a href="https://podcasts.apple.com/us/podcast/growing-joey/id1849972654" class="pill" target="_blank">Apple</a>
+                    <a href="https://open.spotify.com/show/3Jz9QCmBiIuMmFFMx7YWh" class="pill" target="_blank">Spotify</a>
+                    <a href="https://music.amazon.com/podcasts/7c36f135-06a0-415e-b1b3-6e0d992286cb/joey-shits-on-the-world" class="pill" target="_blank">Amazon</a>
+                    <a href="https://www.iheart.com/podcast/309942580" class="pill" target="_blank">iHeart</a>
+                    <a href="https://whatsapp.com/channel/0029VbBCBcn4yltVZkSnvU0C" class="pill" target="_blank">WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -131,6 +158,7 @@
     </footer>
 
     <script>
+        // Updated Google Sheets Script Link
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzeWgDC3cgvng6On_rg5uZZXCurJmPNZP5HHJ_zuWFCunjyaNPTRn7xMW-T2iSFuauS/exec'
         const form = document.getElementById('newsletterForm')
         const msg = document.getElementById('msg')
@@ -144,7 +172,10 @@
                 setTimeout(function(){ msg.innerHTML = "" }, 5000)
                 form.reset()
             })
-            .catch(error => console.error('Error!', error.message))
+            .catch(error => {
+                console.error('Error!', error.message);
+                msg.innerHTML = "ERROR. TRY AGAIN.";
+            })
         })
     </script>
 </body>

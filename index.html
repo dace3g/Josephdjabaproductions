@@ -109,6 +109,135 @@
     </footer>
 
     <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzNyH7J4QJX7ptxTPQ7NkZKgRI8yxbhSKTRMyPAN8qmozmZzVGB1laG5HlFGpbM6WJE/exec'
+        const form = document.getElementById('newsletterForm')
+        const msg = document.getElementById('msg')
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          msg.innerHTML = "Submitting..."
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Welcome to the Network!"
+                setTimeout(function(){ msg.innerHTML = "" }, 5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Djaba Production | Digital Media Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #1a1a1a;
+            --accent-color: #d4af37; 
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; }
+        nav { padding: 1.5rem 10%; display: flex; justify-content: space-between; align-items: center; background: rgba(10, 10, 10, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333; }
+        .logo { font-weight: 900; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-color); }
+        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 2rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        
+        .hero { padding: 100px 10%; text-align: center; border-bottom: 2px solid var(--accent-color); background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)); }
+        .hero h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem; color: var(--accent-color); }
+
+        .content-section { padding: 60px 10%; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 3rem; text-transform: uppercase; letter-spacing: 3px; }
+
+        .podcast-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .podcast-card { background: var(--surface-color); border-radius: 12px; padding: 2rem; border: 1px solid #333; transition: var(--transition); }
+        .podcast-card:hover { border-color: var(--accent-color); }
+        .podcast-card h2 { color: var(--accent-color); margin-bottom: 1rem; }
+        
+        .links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-top: 1.5rem; }
+        .platform-link { display: flex; align-items: center; gap: 8px; padding: 0.7rem; background: #252525; border-radius: 6px; color: #fff; text-decoration: none; font-size: 0.8rem; transition: var(--transition); }
+        .platform-link:hover { background: var(--accent-color); color: #000; }
+
+        .newsletter-section { background: #111; padding: 60px 10%; text-align: center; border-top: 1px solid #333; }
+        .newsletter-container { max-width: 600px; margin: 0 auto; }
+        .newsletter-container h2 { color: var(--accent-color); margin-bottom: 1rem; }
+        .newsletter-form { display: flex; gap: 10px; margin-top: 2rem; }
+        .newsletter-form input { flex: 1; padding: 1rem; border-radius: 4px; border: 1px solid #444; background: #000; color: #fff; }
+        .newsletter-btn { padding: 1rem 2rem; background: var(--accent-color); border: none; font-weight: 700; cursor: pointer; text-transform: uppercase; border-radius: 4px; }
+
+        footer { padding: 40px 10%; text-align: center; font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid #333; }
+        .footer-email { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Joseph Djaba Production</div>
+        <div class="nav-links">
+            <a href="#shows">Shows</a>
+            <a href="#newsletter">Join Network</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>UNFILTERED MEDIA</h1>
+        <p>The home of JDEPOD, Joey $hits On The World, and the future of digital content.</p>
+    </header>
+
+    <section class="content-section" id="shows">
+        <h2 class="section-title">The Lineup</h2>
+        <div class="podcast-container">
+            <div class="podcast-card">
+                <h2>JDEPOD</h2>
+                <p>The Joseph Djaba Experience. Personal growth and cultural insights.</p>
+                <div class="links-grid">
+                    <a href="https://podcasts.apple.com/us/podcast/jdepod-the-joseph-djaba-experience/id1810505702" class="platform-link"><i class="fab fa-apple"></i> Apple</a>
+                    <a href="https://open.spotify.com/show/4ubcQWl7qfA2CCmWITDY12" class="platform-link"><i class="fab fa-spotify"></i> Spotify</a>
+                    <a href="https://whatsapp.com/channel/0029VbBcQcp2ZjCoFBFfi43D" class="platform-link" style="background: #25D366; color: #fff;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.instagram.com/jdepod?igsh=eTlranhhZXV3ZTVp&utm_source=qr" class="platform-link"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+
+            <div class="podcast-card">
+                <h2>Joey $hits On The World</h2>
+                <p>Unapologetic humor and social commentary from the front lines.</p>
+                <div class="links-grid">
+                    <a href="https://podcasts.apple.com/us/podcast/growing-joey/id1849972654" class="platform-link"><i class="fab fa-apple"></i> Apple</a>
+                    <a href="https://open.spotify.com/show/3Jz9QCmBiIuMmFFMx7YWh" class="platform-link"><i class="fab fa-spotify"></i> Spotify</a>
+                    <a href="https://whatsapp.com/channel/0029VbBCBcn4yltVZkSnvU0C" class="platform-link" style="background: #25D366; color: #fff;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.iheart.com/podcast/309942580" class="platform-link"><i class="fas fa-radio"></i> iHeart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section" id="newsletter">
+        <div class="newsletter-container">
+            <h2>JOIN THE NETWORK</h2>
+            <p>Get exclusive updates and early access to new show launches.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+            <p id="msg" style="margin-top:15px; color: var(--accent-color);"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 JOSEPH DJABA PRODUCTION. ALL RIGHTS RESERVED.</p>
+        <p style="margin-top: 10px;">Contact: <a href="mailto:JosephDjabaProductions@gmail.com" class="footer-email">JosephDjabaProductions@gmail.com</a></p>
+    </footer>
+
+    <script>
         const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE'
         const form = document.getElementById('newsletterForm')
         const msg = document.getElementById('msg')

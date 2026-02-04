@@ -23,6 +23,7 @@ body{
   background:var(--bg-color);
   color:var(--text-main);
   line-height:1.5;
+  overflow-x: hidden;
 }
 h1,h2{font-family:'Archivo Black',sans-serif;text-transform:uppercase}
 
@@ -32,15 +33,21 @@ nav{
   justify-content:space-between;
   align-items:center;
   border-bottom:var(--border-val);
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 100;
 }
-.logo{color:var(--accent-color);font-weight:900}
+.logo{color:var(--accent-color);font-weight:900; letter-spacing: 1px;}
 .nav-links a{
   color:#fff;
   margin-left:2rem;
   text-decoration:none;
   font-size:.75rem;
   font-weight:700;
+  transition: color 0.3s;
 }
+.nav-links a:hover{color: var(--accent-color);}
 
 .hero{
   padding:120px 5% 60px;
@@ -59,6 +66,7 @@ nav{
   margin:40px auto 20px;
   border-bottom:2px solid var(--accent-color);
   padding-bottom:10px;
+  padding-left: 5%;
 }
 
 .grid-container{
@@ -67,7 +75,7 @@ nav{
   gap:30px;
   max-width:1200px;
   margin:auto;
-  padding:20px 5%;
+  padding:20px 5% 80px;
 }
 
 .show-card{
@@ -105,7 +113,12 @@ nav{
   padding:25px;
   display:flex;
   flex-direction:column;
-  height:100%;
+  flex-grow: 1;
+}
+
+.show-content p {
+  margin-bottom: 20px;
+  color: var(--text-dim);
 }
 
 .platform-wrap{
@@ -122,10 +135,11 @@ nav{
   text-transform:uppercase;
   text-decoration:none;
   color:#fff;
+  transition: 0.3s;
 }
 .pill:hover{background:var(--accent-color);color:#000}
 
-/* Killers & Thieves */
+/* Killers & Thieves Special Styling */
 .killers-card{position:relative;overflow:hidden}
 .killers-card::before{
   content:"";
@@ -133,6 +147,7 @@ nav{
   inset:0;
   background:linear-gradient(120deg,transparent 30%,rgba(255,0,0,.15),transparent 70%);
   animation:crimeScan 4s infinite;
+  pointer-events: none;
 }
 .killers-card .signal-icon{color:red;animation:glitchPulse 1.8s infinite}
 
@@ -151,6 +166,11 @@ footer{
   text-align:center;
   border-top:var(--border-val);
   color:var(--text-dim);
+  font-size: 0.8rem;
+}
+
+input:focus {
+    outline: 2px solid var(--accent-color);
 }
 </style>
 </head>
@@ -166,8 +186,8 @@ footer{
 </nav>
 
 <header class="hero">
-  <p style="color:var(--accent-color);font-weight:900;">EST. 2026</p>
-  <h1>UNFILTERED. REAL.</h1>
+  <p style="color:var(--accent-color);font-weight:900; margin-bottom: 10px;">EST. 2026</p>
+  <h1>UNFILTERED.<br>REAL.</h1>
   <p>The home of JDEPOD, Joey $hits On The World, and Killers and Thieves.</p>
 </header>
 
@@ -177,7 +197,6 @@ footer{
 
 <section class="grid-container">
 
-<!-- JDEPOD -->
 <div class="show-card">
   <div class="show-animation-box">
     <i class="fa-solid fa-tower-broadcast signal-icon"></i>
@@ -186,17 +205,16 @@ footer{
     <h2>JDEPOD</h2>
     <p>The Joseph Djaba Experience. Personal evolution and cultural insights.</p>
     <div class="platform-wrap">
-      <a href="https://www.instagram.com/jdepod" class="pill">Instagram</a>
+      <a href="https://www.instagram.com/jdepod?igsh=eTlranhhZXV3ZTVp&utm_source=qr" class="pill">Instagram</a>
       <a href="https://open.spotify.com/show/4ubcQWl7qfA2CCmWITDY12" class="pill">Spotify</a>
       <a href="https://podcasts.apple.com/us/podcast/jdepod-the-joseph-djaba-experience/id1810505702" class="pill">Apple</a>
-      <a href="https://music.amazon.com/podcasts/22a892e4-5a7a-4a3d-92b2-bd9f503bfe8c" class="pill">Amazon</a>
+      <a href="https://music.amazon.com/podcasts/22a892e4-5a7a-4a3d-92b2-bd9f503bfe8c/jdepod-the-joseph-djaba-experience?ref=dm_sh_pYTYMPq22WscwPj83XIGpkgVE" class="pill">Amazon</a>
       <a href="https://www.iheart.com/podcast/1333-jdepod-the-joseph-djaba-e-273447982/" class="pill">iHeart</a>
-      <a href="https://www.audible.co.uk/podcast/The-Joseph-Djaba-Experience-JDEPOD/B0F693LDP2" class="pill">Audible</a>
+      <a href="https://www.audible.co.uk/podcast/The-Joseph-Djaba-Experience-JDEPOD/B0F693LDP2?source_code=ASSGB149080119000H&share_location=pdp" class="pill">Audible</a>
     </div>
   </div>
 </div>
 
-<!-- JOEY $HITS -->
 <div class="show-card">
   <div class="show-animation-box">
     <i class="fa-solid fa-microphone-lines signal-icon"></i>
@@ -207,13 +225,12 @@ footer{
     <div class="platform-wrap">
       <a href="https://open.spotify.com/show/3Jz9QCmBiIuMmFFMx7YWh" class="pill">Spotify</a>
       <a href="https://podcasts.apple.com/us/podcast/growing-joey/id1849972654" class="pill">Apple</a>
-      <a href="https://music.amazon.com/podcasts/7c36f135-06a0-415e-b1b3-6e0d992286cb" class="pill">Amazon</a>
+      <a href="https://music.amazon.com/podcasts/7c36f135-06a0-415e-b1b3-6e0d992286cb/joey-shits-on-the-world?ref=dm_sh_4lhSTD1JmvOeSXdPE0IdP8Jzf" class="pill">Amazon</a>
       <a href="https://www.iheart.com/podcast/309942580" class="pill">iHeart</a>
     </div>
   </div>
 </div>
 
-<!-- KILLERS & THIEVES -->
 <div class="show-card killers-card">
   <div class="show-animation-box">
     <i class="fa-solid fa-skull signal-icon"></i>
@@ -232,55 +249,58 @@ footer{
 
 </section>
 
-<!-- NEWSLETTER -->
-<section id="newsletter" style="padding:60px 5%;max-width:600px;margin:auto;text-align:center;">
+<section id="newsletter" style="padding:100px 5%; max-width:600px; margin:auto; text-align:center;">
   <h2>Join The Network</h2>
+  <p style="color:var(--text-dim); margin-top:10px;">Get notified when new episodes drop.</p>
 
   <form id="newsletter-form">
     <input type="email" name="email" required placeholder="Enter your email"
-      style="padding:10px;width:70%;margin-top:20px;">
-    <input type="hidden" name="source" value="Joseph Djaba Production">
+      style="padding:12px; width:100%; max-width:400px; margin-top:20px; background:#111; border:1px solid #333; color:#fff;">
+    <input type="hidden" name="source" value="Joseph Djaba Production Website">
     <br><br>
-    <button type="submit"
-      style="padding:10px 20px;background:#FF5500;border:none;font-weight:700;">
+    <button type="submit" id="submit-btn"
+      style="padding:12px 30px; background:#FF5500; border:none; font-weight:700; color:#fff; cursor:pointer; text-transform:uppercase;">
       Subscribe
     </button>
   </form>
 
   <p id="welcome-message"
-     style="display:none;margin-top:15px;color:#FF5500;font-weight:700;">
-    Welcome to the network. You’re officially locked in.
+     style="display:none; margin-top:20px; color:#FF5500; font-weight:700; border: 1px solid #FF5500; padding: 15px;">
+    WELCOME TO THE NETWORK. YOU’RE OFFICIALLY LOCKED IN.
   </p>
 </section>
 
 <footer>
-  <p>© 2026 JOSEPH DJABA PRODUCTION</p>
+  <p>© 2026 JOSEPH DJABA PRODUCTION. ALL RIGHTS RESERVED.</p>
 </footer>
 
 <script>
 const form = document.getElementById("newsletter-form");
 const message = document.getElementById("welcome-message");
+const btn = document.getElementById("submit-btn");
 
 form.addEventListener("submit", e => {
   e.preventDefault();
+  btn.innerText = "SENDING...";
+  btn.disabled = true;
+  
   const data = new FormData(form);
 
+  // Note: Google Apps Script usually requires mode: 'no-cors' if not handled via JSONP
   fetch("https://script.google.com/macros/s/AKfycbywgwbthOn9rXLv4KMo3G7rDjUUWG-B93tqvvG3wOME4o-GC12h8wKMB1JGXh1d6cXJ7w/exec", {
     method: "POST",
-    body: data
+    body: data,
+    mode: 'no-cors' 
   })
-  .then(res => res.text())
-  .then(txt => {
-    if (txt.includes("Success")) {
-      form.reset();
-      message.style.display = "block";
-    } else {
-      alert("Submission failed.");
-      console.log(txt);
-    }
+  .then(() => {
+    // With no-cors, we can't read the response body, so we assume success if the request completes
+    form.style.display = "none";
+    message.style.display = "block";
   })
   .catch(err => {
-    alert("Network error.");
+    alert("Network error. Please try again later.");
+    btn.innerText = "SUBSCRIBE";
+    btn.disabled = false;
     console.error(err);
   });
 });

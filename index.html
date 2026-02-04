@@ -6,12 +6,12 @@
     <title>Joseph Djaba Production | Digital Media Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --bg-color: #000000;
-            --surface-color: #000044; 
-            --accent-color: #FF5500; 
+            --surface-color: #000044;
+            --accent-color: #FF5500;
             --text-main: #ffffff;
             --text-dim: #D1D1D1;
             --border-val: 1px solid #111199;
@@ -19,41 +19,84 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.5; overflow-x: hidden; }
-        
         h1, h2, h3 { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: -1px; }
 
-        nav { padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: #000; position: sticky; top: 0; z-index: 1000; border-bottom: var(--border-val); }
+        nav {
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: var(--border-val);
+        }
+
         .logo { font-size: 1.1rem; font-weight: 900; letter-spacing: 1px; color: var(--accent-color); }
-        .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 2rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
         .nav-links a:hover { color: var(--accent-color); }
 
-        .hero { 
-            padding: 120px 5% 60px; 
-            text-align: left; 
-            max-width: 1200px; 
-            margin: 0 auto;
+        .hero {
+            padding: 120px 5% 60px;
+            max-width: 1200px;
+            margin: 20px auto 0;
             border-left: 5px solid var(--accent-color);
-            margin-top: 20px;
         }
-        .hero h1 { font-size: clamp(3rem, 10vw, 7rem); line-height: 0.9; margin-bottom: 2rem; color: var(--text-main); }
-        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; margin-bottom: 2rem; }
 
-        .section-header { padding: 0 5%; max-width: 1200px; margin: 40px auto 20px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; }
-        
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 20px 5%; max-width: 1200px; margin: 0 auto; }
-        
-        .show-card { background: var(--surface-color); border: var(--border-val); transition: 0.3s; display: flex; flex-direction: column; }
-        .show-card:hover { border-color: var(--accent-color); transform: translateY(-5px); }
-        
-        .show-animation-box { 
-            width: 100%; 
-            aspect-ratio: 16/9; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 7rem);
+            line-height: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 600px; }
+
+        .section-header {
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 40px auto 20px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .show-card {
+            background: var(--surface-color);
+            border: var(--border-val);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .show-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .show-animation-box {
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: radial-gradient(circle, #111199 0%, #000 100%);
-            position: relative;
-            overflow: hidden;
         }
 
         .signal-icon {
@@ -63,118 +106,161 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.5; text-shadow: 0 0 0px var(--accent-color); }
+            0% { transform: scale(1); opacity: 0.5; }
             50% { transform: scale(1.1); opacity: 1; text-shadow: 0 0 20px var(--accent-color); }
-            100% { transform: scale(1); opacity: 0.5; text-shadow: 0 0 0px var(--accent-color); }
+            100% { transform: scale(1); opacity: 0.5; }
         }
 
-        .show-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .show-card h2 { font-size: 1.8rem; margin-bottom: 10px; color: var(--accent-color); }
-        .show-card p { color: var(--text-main); font-size: 0.9rem; margin-bottom: 20px; min-height: 3em; }
+        .show-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-        .platform-wrap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
-        .pill { padding: 6px 10px; background: #000; color: #fff; text-decoration: none; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; border: 1px solid var(--accent-color); transition: 0.3s; }
-        .pill:hover { background: var(--accent-color); color: #000; }
+        .show-card h2 { color: var(--accent-color); margin-bottom: 10px; }
+        .show-card p { font-size: 0.9rem; margin-bottom: 20px; }
 
-        .newsletter { background: var(--accent-color); color: #000; padding: 80px 5%; text-align: center; margin-top: 60px; }
-        .newsletter h2 { font-size: 3rem; margin-bottom: 1rem; }
-        .newsletter-form input { padding: 15px; border: 2px solid #000; background: #fff; font-weight: 700; width: 300px; margin-bottom: 10px; }
-        .newsletter-form button { padding: 15px 30px; background: #000; color: #fff; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; }
+        .platform-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
 
-        footer { padding: 60px 5%; text-align: center; border-top: var(--border-val); color: var(--text-dim); font-size: 0.8rem; }
+        .pill {
+            padding: 6px 10px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            border: 1px solid var(--accent-color);
+            transition: 0.3s;
+        }
+
+        .pill:hover {
+            background: var(--accent-color);
+            color: #000;
+        }
+
+        /* --- Killers & Thieves Special Animation --- */
+        .killers-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .killers-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                120deg,
+                transparent 30%,
+                rgba(255, 0, 0, 0.15),
+                transparent 70%
+            );
+            animation: crimeScan 4s infinite;
+            pointer-events: none;
+        }
+
+        .killers-card .signal-icon {
+            color: #ff0000;
+            animation: glitchPulse 1.8s infinite;
+        }
+
+        @keyframes crimeScan {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes glitchPulse {
+            0% { opacity: 1; transform: scale(1); text-shadow: none; }
+            20% { opacity: 0.6; transform: translateX(-2px); }
+            40% { opacity: 1; transform: translateX(2px); text-shadow: 0 0 12px red; }
+            60% { opacity: 0.7; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        footer {
+            padding: 60px 5%;
+            text-align: center;
+            border-top: var(--border-val);
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
     </style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">JOSEPH DJABA PRODUCTION</div>
-        <div class="nav-links">
-            <a href="#shows">Network</a>
-            <a href="#newsletter">Join</a>
+<nav>
+    <div class="logo">JOSEPH DJABA PRODUCTION</div>
+    <div class="nav-links">
+        <a href="#shows">Network</a>
+        <a href="#newsletter">Join</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <p style="color: var(--accent-color); font-weight: 900;">EST. 2026</p>
+    <h1>UNFILTERED. REAL.</h1>
+    <p>The home of JDEPOD, Joey $hits On The World, and Killers and Thieves.</p>
+</header>
+
+<div class="section-header" id="shows">
+    <h2>The Network</h2>
+</div>
+
+<section class="grid-container">
+
+    <!-- JDEPOD -->
+    <div class="show-card">
+        <div class="show-animation-box">
+            <i class="fa-solid fa-tower-broadcast signal-icon"></i>
         </div>
-    </nav>
-
-    <header class="hero">
-        <p style="color: var(--accent-color); font-weight: 900;">EST. 2026</p>
-        <h1>UNFILTERED. REAL.</h1>
-        <p>The home of JDEPOD and Joey $hits On The World. Raw storytelling for a modern audience.</p>
-    </header>
-
-    <div class="section-header" id="shows">
-        <h2>THE NETWORK</h2>
+        <div class="show-content">
+            <h2>JDEPOD</h2>
+            <p>The Joseph Djaba Experience. Personal evolution and cultural insights.</p>
+        </div>
     </div>
 
-    <section class="grid-container">
-        <div class="show-card">
-            <div class="show-animation-box">
-                <i class="fa-solid fa-tower-broadcast signal-icon"></i>
-            </div>
-            <div class="show-content">
-                <h2>JDEPOD</h2>
-                <p>The Joseph Djaba Experience. Personal evolution and cultural insights.</p>
-                <div class="platform-wrap">
-                    <a href="https://podcasts.apple.com/us/podcast/jdepod-the-joseph-djaba-experience/id1810505702" class="pill" target="_blank">Apple</a>
-                    <a href="https://open.spotify.com/show/4ubcQWl7qfA2CCmWITDY12" class="pill" target="_blank">Spotify</a>
-                    <a href="https://music.amazon.com/podcasts/22a892e4-5a7a-4a3d-92b2-bd9f503bfe8c/jdepod-the-joseph-djaba-experience" class="pill" target="_blank">Amazon</a>
-                    <a href="https://www.iheart.com/podcast/1333-jdepod-the-joseph-djaba-e-273447982/" class="pill" target="_blank">iHeart</a>
-                    <a href="https://www.audible.co.uk/podcast/The-Joseph-Djaba-Experience-JDEPOD/B0F693LDP2" class="pill" target="_blank">Audible</a>
-                    <a href="https://www.instagram.com/jdepod" class="pill" target="_blank">Instagram</a>
-                    <a href="https://whatsapp.com/channel/0029VbBcQcp2ZjCoFBFfi43D" class="pill" target="_blank">WhatsApp</a>
-                </div>
+    <!-- JOEY $HITS ON THE WORLD -->
+    <div class="show-card">
+        <div class="show-animation-box">
+            <i class="fa-solid fa-microphone-lines signal-icon"></i>
+        </div>
+        <div class="show-content">
+            <h2>JOEY $HITS ON THE WORLD</h2>
+            <p>Unapologetic humor and raw social commentary from Joey’s perspective on the world.</p>
+        </div>
+    </div>
+
+    <!-- KILLERS AND THIEVES -->
+    <div class="show-card killers-card">
+        <div class="show-animation-box">
+            <i class="fa-solid fa-skull signal-icon"></i>
+        </div>
+        <div class="show-content">
+            <h2>KILLERS & THIEVES</h2>
+            <p>Dark, investigative storytelling exploring crime, mystery, and the human psyche.</p>
+            <div class="platform-wrap">
+                <a href="https://open.spotify.com/show/3WPLeK6uB9KYayy5mfE2EY" class="pill" target="_blank">Spotify</a>
+                <a href="https://podcasts.apple.com/us/podcast/killers-and-thieves/id1874283429" class="pill" target="_blank">Apple</a>
+                <a href="https://music.amazon.co.uk/podcasts/d51cb410-5ed1-4e1f-8f47-bcb188d250c2" class="pill" target="_blank">Amazon</a>
+                <a href="https://www.iheart.com/podcast/269-killers-and-thieves-320786969/" class="pill" target="_blank">iHeart</a>
             </div>
         </div>
+    </div>
 
-        <div class="show-card">
-            <div class="show-animation-box">
-                <i class="fa-solid fa-microphone-lines signal-icon"></i>
-            </div>
-            <div class="show-content">
-                <h2>JOEY $HITS</h2>
-                <p>Unapologetic humor and social commentary from the front lines.</p>
-                <div class="platform-wrap">
-                    <a href="https://podcasts.apple.com/us/podcast/growing-joey/id1849972654" class="pill" target="_blank">Apple</a>
-                    <a href="https://open.spotify.com/show/3Jz9QCmBiIuMmFFMx7YWhv?si=AMayUatdQ1K7OoFNH5XTbg" class="pill" target="_blank">Spotify</a>
-                    <a href="https://music.amazon.com/podcasts/7c36f135-06a0-415e-b1b3-6e0d992286cb/joey-shits-on-the-world" class="pill" target="_blank">Amazon</a>
-                    <a href="https://www.iheart.com/podcast/309942580" class="pill" target="_blank">iHeart</a>
-                    <a href="https://whatsapp.com/channel/0029VbBCBcn4yltVZkSnvU0C" class="pill" target="_blank">WhatsApp</a>
-                </div>
-            </div>
-        </div>
-    </section>
+</section>
 
-    <section class="newsletter" id="newsletter">
-        <h2>JOIN THE LIST</h2>
-        <form class="newsletter-form" id="newsletterForm">
-            <input type="email" name="email" placeholder="EMAIL ADDRESS" required>
-            <button type="submit">SUBSCRIBE</button>
-        </form>
-        <p id="msg" style="margin-top:20px; font-weight: 900;"></p>
-    </section>
+<footer>
+    <p>© 2026 JOSEPH DJABA PRODUCTION</p>
+</footer>
 
-    <footer>
-        <p>© 2026 JOSEPH DJABA PRODUCTION</p>
-        <p><a href="mailto:JosephDjabaProductions@gmail.com" style="color: var(--accent-color); text-decoration: none;">JosephDjabaProductions@gmail.com</a></p>
-    </footer>
-
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzeWgDC3cgvng6On_rg5uZZXCurJmPNZP5HHJ_zuWFCunjyaNPTRn7xMW-T2iSFuauS/exec'
-        const form = document.getElementById('newsletterForm')
-        const msg = document.getElementById('msg')
-      
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          msg.innerHTML = "SUBMITTING..."
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                msg.innerHTML = "YOU'RE IN. CHECK YOUR EMAIL."
-                setTimeout(function(){ msg.innerHTML = "" }, 5000)
-                form.reset()
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                msg.innerHTML = "ERROR. TRY AGAIN.";
-            })
-        })
-    </script>
 </body>
 </html>
